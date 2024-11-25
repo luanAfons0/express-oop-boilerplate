@@ -1,0 +1,3 @@
+interface IRouter {
+    initRoutes: Function;
+}

@@ -3,6 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",

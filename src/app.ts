@@ -1,8 +1,9 @@
-import "dotenv/config";
+import health_check_route from "./routes/health_check_route";
 import express, { Express } from "express";
+import "dotenv/config";
 
 class App {
-    private readonly app: Express = null;
+    private readonly app: Express;
     private readonly port: number = Number(process.env.PORT) || 3000;
 
     constructor() {
@@ -21,12 +22,12 @@ class App {
     }
 
     private initRoutes() {
-
+        this.app.use("/api/v1/", health_check_route);
     }
 
     public listen() {
         this.app.listen(this.port, () => {
-            console.log("Server is up and running")
+            console.log("Server is up and running...")
         })
     }
 }
