@@ -1,3 +1,4 @@
+import ErrorHandler from "./helpers/error-handler";
 import express, { Express } from "express";
 import routes from "./routes/routes";
 import "dotenv/config";
@@ -12,6 +13,7 @@ class App {
     }
 
     private init() {
+        this.initErrorHandler();
         this.initMiddlewares();
         this.initRoutes();
     }
@@ -23,6 +25,11 @@ class App {
 
     private initRoutes() {
         this.app.use(routes);
+    }
+
+    private initErrorHandler() {
+        this.app.use(ErrorHandler.notFound);
+        this.app.use(ErrorHandler.serverError);
     }
 
     public listen() {
