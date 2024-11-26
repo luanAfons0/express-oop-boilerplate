@@ -3,10 +3,15 @@ import IController from "../interfaces/IController";
 import { Request, Response } from "express";
 
 class HealthCheckController implements IController<any> {
-    public get(req: Request, res: Response) {
+    private readonly healthCheckService: HealthCheckService;
+
+    constructor() {
+        this.healthCheckService = new HealthCheckService();
+    }
+
+    public get = (req: Request, res: Response) => {
         try {
-            const health_check_service = new HealthCheckService();
-            const response = health_check_service.find();
+            const response = this.healthCheckService.find();
             res.status(200).json(response);
         } catch (error) {
             throw new Error(error.message);
