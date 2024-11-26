@@ -6,6 +6,7 @@ class Routes {
 
     constructor() {
         this.routes = Router();
+        this.initRoutes();
     }
 
     public initRoutes() {

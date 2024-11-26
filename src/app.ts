@@ -1,3 +1,4 @@
+import middlewares from "./middlewares/middlewares";
 import ErrorHandler from "./helpers/error-handler";
 import express, { Express } from "express";
 import routes from "./routes/routes";
@@ -13,14 +14,13 @@ class App {
     }
 
     private init() {
-        this.initErrorHandler();
         this.initMiddlewares();
         this.initRoutes();
+        this.initErrorHandler();
     }
 
     private initMiddlewares() {
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(middlewares);
     }
 
     private initRoutes() {
@@ -34,7 +34,7 @@ class App {
 
     public listen() {
         this.app.listen(this.port, () => {
-            console.log("Server is up and running...");
+            console.log(`Server is up on port ${this.port}...`);
         });
     }
 }
