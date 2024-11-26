@@ -1,4 +1,4 @@
-import HealthCheckController from "../controllers/health_check_controller";
+import HealthCheckController from "../controllers/health-check-controller";
 import { Router } from "express";
 
 class HealthCheckRoute implements IRouter {

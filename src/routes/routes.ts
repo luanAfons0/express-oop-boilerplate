@@ -1,4 +1,4 @@
-import health_check_route from "./health_check_route";
+import health_check_route from "./health-check-route";
 import { Router } from "express";
 
 class Routes {

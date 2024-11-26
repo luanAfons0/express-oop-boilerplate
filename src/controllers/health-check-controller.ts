@@ -1,4 +1,4 @@
-import HealthCheckService from "../services/health_check_service";
+import HealthCheckService from "../services/health-check-service";
 import { Request, Response } from "express";
 
 class HealthCheckController {
