@@ -1,8 +1,7 @@
 import HealthCheckService from "../services/health_check_service";
-import IController from "../interfaces/IController";
 import { Request, Response } from "express";
 
-class HealthCheckController implements IController<any> {
+class HealthCheckController {
     private readonly healthCheckService: HealthCheckService;
 
     constructor() {

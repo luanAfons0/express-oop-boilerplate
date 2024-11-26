@@ -1,5 +1,5 @@
-import health_check_route from "./routes/health_check_route";
 import express, { Express } from "express";
+import routes from "./routes/routes";
 import "dotenv/config";
 
 class App {
@@ -22,13 +22,13 @@ class App {
     }
 
     private initRoutes() {
-        this.app.use("/api/v1/", health_check_route);
+        this.app.use(routes);
     }
 
     public listen() {
         this.app.listen(this.port, () => {
-            console.log("Server is up and running...")
-        })
+            console.log("Server is up and running...");
+        });
     }
 }
 
