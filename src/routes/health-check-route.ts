@@ -1,7 +1,7 @@
 import HealthCheckController from "../controllers/health-check-controller";
 import { Router } from "express";
 
-class HealthCheckRoute implements IRouter {
+class HealthCheckRoute {
   private readonly health_check_controller: HealthCheckController;
   public readonly router: Router;
 
