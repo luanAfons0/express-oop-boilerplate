@@ -6,7 +6,7 @@ import "dotenv/config";
 
 class App {
     private readonly app: Express;
-    private readonly port: number = Number(process.env.PORT) || 3000;
+    private readonly port: number = Number(process.env.PORT) || 3000; // eslint-disable-line
 
     constructor() {
         this.app = express();
