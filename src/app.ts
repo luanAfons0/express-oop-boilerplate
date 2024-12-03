@@ -1,5 +1,6 @@
 import middlewares from "./middlewares/middlewares";
 import ErrorHandler from "./helpers/error-handler";
+import { PrismaClient } from '@prisma/client'
 import express, { Express } from "express";
 import routes from "./routes/routes";
 import "dotenv/config";
@@ -14,9 +15,21 @@ class App {
   }
 
   private init() {
-    this.initMiddlewares();
-    this.initRoutes();
-    this.initErrorHandler();
+    try {
+      this.initDataBase().then(() => {
+        this.initMiddlewares();
+        this.initRoutes();
+        this.initErrorHandler();
+      })
+    } catch (error) {
+      console.log(error.message);
+      process.exit(1);
+    }
+  }
+
+  private async initDataBase() {
+    const prisma = new PrismaClient();
+    await prisma.$connect();
   }
 
   private initMiddlewares() {
