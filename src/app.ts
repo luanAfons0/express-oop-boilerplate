@@ -1,6 +1,6 @@
 import middlewares from "./middlewares/middlewares";
 import ErrorHandler from "./helpers/error-handler";
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 import express, { Express } from "express";
 import routes from "./routes/routes";
 import "dotenv/config";
@@ -20,10 +20,10 @@ class App {
         this.initMiddlewares();
         this.initRoutes();
         this.initErrorHandler();
-      })
+      });
     } catch (error) {
       console.log(error.message);
-      process.exit(1);
+      process.exit(1); // eslint-disable-line
     }
   }
 
