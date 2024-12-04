@@ -1,8 +1,8 @@
 interface IService<T> {
-  findById(id: number): T;
-  findAll(): T[];
-  updateById(id: number): T;
-  deleteById(id: number): T;
+  findById(id: string): Promise<T | null>;
+  findAll(): Promise<T[]>;
+  updateById(id: string, data: T): Promise<T | null>;
+  deleteById(id: string): Promise<T | null>;
 }
 
 export default IService;
