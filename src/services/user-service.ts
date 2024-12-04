@@ -10,11 +10,7 @@ class UserService implements IService<User> {
   }
 
   async create(data: User): Promise<User> {
-    try {
-      return await this.userRepository.create(data);
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    return this.userRepository.create(data);
   }
 
   async findAll(): Promise<User[]> {

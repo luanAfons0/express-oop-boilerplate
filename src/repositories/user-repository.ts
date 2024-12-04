@@ -9,8 +9,8 @@ class UserRepository implements IRepository<User> {
     this.prisma = new PrismaClient();
   }
 
-  async create(data: User): Promise<User> {
-    return await this.prisma.user.create({ data });
+  create(data: User): Promise<User> {
+    return this.prisma.user.create({ data });
   }
 
   findAll(): Promise<User[]> {

@@ -12,7 +12,11 @@ class UserRoutes {
   }
 
   public initRoutes() {
-    this.router.post("/user", this.user_controller.post);
+    this.router.post("/user", this.user_controller.create);
+    this.router.get("/users/all", this.user_controller.getAll);
+    this.router.get("/user/:id", this.user_controller.getById);
+    this.router.patch("/user/:id", this.user_controller.update);
+    this.router.delete("/user/:id", this.user_controller.delete);
   }
 }
 
